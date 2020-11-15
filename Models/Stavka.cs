@@ -1,22 +1,27 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
-using System.Text;
+using System.ComponentModel.DataAnnotations;
 
-namespace lab1Lect
+#nullable disable
+
+namespace LabLastGer8
 {
-    class Stavka
+    public partial class Stavka
     {
+        public Stavka()
+        {
+            Lecturers = new HashSet<Lecturer>();
+        }
+
+        [HiddenInput(DisplayValue = false)]
         public int Id { get; set; }
-        public double Count { get; set; }
-        public override string ToString()
-        {
-            return $"Count: {Count}";
-        }
-        public Stavka(int id, double count)
-        {
-            Id = id;
-            Count = count;
-        }
-        public Stavka() { }
+        [Display(Name = "Count")]
+        [Required(ErrorMessage = "this filed needs to be installed ")]
+       
+        public float? Count { get; set; }
+
+        public virtual ICollection<Lecturer> Lecturers { get; set; }
+        
     }
 }

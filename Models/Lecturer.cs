@@ -1,34 +1,44 @@
-﻿
+﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
-using System.Text;
+using System.ComponentModel.DataAnnotations;
 
-namespace lab1Lect
+#nullable disable
+
+namespace LabLastGer8
 {
-    class Lecturer
+    public partial class Lecturer
     {
-       
+        public Lecturer()
+        {
+            SubLecturers = new HashSet<SubLecturer>();
+        }
+        [HiddenInput(DisplayValue = false)]
         public int Id { get; set; }
+        [Required]
+        [Display(Name = "Person")]
         public int PersonId { get; set; }
+        [Required]
+        [Display(Name = "Place name")]
         public int PlaceWorkId { get; set; }
-        public int PostId { get; set; }
+        [Required]
+        [Display(Name = "Count")]
         public int StavkaId { get; set; }
-        public String Characteristic { get; set; }
-        //public override string ToString()
-        //{
-        //    return $"{Connections.getData.getPersonById(PersonId, Connections.dataBase.GetSqlConnection())} {Connections.getData.getPlaceWorkById(PlaceWorkId, Connections.dataBase.GetSqlConnection())}  {Connections.getData.getPostById(PostId, Connections.dataBase.GetSqlConnection())} {Connections.getData.getStavkaById(StavkaId, Connections.dataBase.GetSqlConnection())}, Characteristic {Characteristic}";
-        //    //return $"{Connections.getData.getPersonById(PersonId,Connections.dataBase.GetSqlConnection())} {Connections.getData.getPlaceWorkById(PlaceWorkId, Connections.dataBase.GetSqlConnection())}  {Connections.getData.getPostById(PostId, Connections.dataBase.GetSqlConnection())} {Connections.getData.getStavkaById(StavkaId, Connections.dataBase.GetSqlConnection())}, Characteristic {Characteristic}";
-        //}
-        public Lecturer(int id, int personId, int placeWorkId,
-            int stavkaId, int postId, string characteristic)
-            {
-            Id= id;
-            PersonId = personId;
-            PlaceWorkId = placeWorkId;           
-            StavkaId = stavkaId;
-            PostId = postId;
-            Characteristic = characteristic;
-            }
-        public Lecturer() { }
+        [Required]
+        [Display(Name = "Post name")]
+        public int PostId { get; set; }
+        [Required]
+        public string Characteristic { get; set; }
+        [Required]
+        public virtual Person Person { get; set; }
+        [Required]
+        public virtual PlacesWork PlaceWork { get; set; }
+        [Required]
+        public virtual Post Post { get; set; }
+        [Required]
+        public virtual Stavka Stavka { get; set; }
+
+        public virtual ICollection<SubLecturer> SubLecturers { get; set; }
+       
     }
 }

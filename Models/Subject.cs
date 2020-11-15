@@ -1,24 +1,26 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
-using System.Text;
+using System.ComponentModel.DataAnnotations;
 
-namespace lab1Lect
+#nullable disable
+
+namespace LabLastGer8
 {
-    class Subject
+    public partial class Subject
     {
+        public Subject()
+        {
+            SubLecturers = new HashSet<SubLecturer>();
+        }
+        [HiddenInput(DisplayValue = false)]
         public int Id { get; set; }
-        public String SubjName { get; set; }
-        public int Hours { get; set; }
-        public override string ToString()
-        {
-            return $"Subject name {SubjName}, Hours {Hours}";
-        }
-        public Subject (int id,String subjName,int hours=0)
-        {
-            Id = id;
-            SubjName = subjName;
-            Hours = hours;
-        }
-        public Subject() { }
+        [Display(Name = "Subject name")]
+        [Required(ErrorMessage = "this filed needs to be installed ")]
+        [StringLength(50, MinimumLength = 3, ErrorMessage = "string length neds to be more or equal 3 and less than or equal 50 ")]
+        public string SubjName { get; set; }
+
+        public virtual ICollection<SubLecturer> SubLecturers { get; set; }
+       
     }
 }

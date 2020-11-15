@@ -1,22 +1,27 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
-using System.Text;
+using System.ComponentModel.DataAnnotations;
 
-namespace lab1Lect
+#nullable disable
+
+namespace LabLastGer8
 {
-    class Post
+    public partial class Post
     {
+        public Post()
+        {
+            Lecturers = new HashSet<Lecturer>();
+        }
+        [HiddenInput(DisplayValue = false)]
         public int Id { get; set; }
-        public String PostName { get; set; }
-        public override string ToString()
-        {
-            return $"Post name: {PostName}";
-        }
-        public Post(int id,String postName)
-        {
-            Id = id;
-            PostName = postName;
-        }
-        public Post() { }
+        [Display(Name = "Post name")]
+        [Required(ErrorMessage = "this filed needs to be installed ")]
+        [StringLength(50, MinimumLength = 3, ErrorMessage = "string length neds to be more or equal 3 and less than or equal 50 ")]
+       // public string PlaceName { get; set; }
+        public string PostName { get; set; }
+
+        public virtual ICollection<Lecturer> Lecturers { get; set; }
+        
     }
 }
