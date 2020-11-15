@@ -5,7 +5,7 @@ using System.Text;
 
 namespace lab1Lect
 {
-    class GetData
+    class Model
     {
        
         public  Address getAddressById(int id, SqlConnection sqlConnection)

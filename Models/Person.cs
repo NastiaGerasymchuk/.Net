@@ -16,7 +16,7 @@ namespace lab1Lect
         public int AddressId { get; set; }
         public override string ToString()
         {
-            //return $"First name: {FirstName}, LastName {LastName}, Middle Name {MiddleName}, Phone Number {PhoneNumber}, Address {Connections.getData.getAddressById(AddressId, Connections.dataBase.GetSqlConnection())}";
+            //return $"First name: {FirstName}, LastName {LastName}, Middle Name {MiddleName}, Phone Number {PhoneNumber}, Address {Connections._getData.getAddressById(AddressId, Connections._dataBase.GetSqlConnection())}";
             return $"First name: {FirstName}, LastName {LastName}, Middle Name {MiddleName}, Phone Number {PhoneNumber}";
         }
 

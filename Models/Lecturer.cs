@@ -16,8 +16,8 @@ namespace lab1Lect
         public String Characteristic { get; set; }
         //public override string ToString()
         //{
-        //    return $"{Connections.getData.getPersonById(PersonId, Connections.dataBase.GetSqlConnection())} {Connections.getData.getPlaceWorkById(PlaceWorkId, Connections.dataBase.GetSqlConnection())}  {Connections.getData.getPostById(PostId, Connections.dataBase.GetSqlConnection())} {Connections.getData.getStavkaById(StavkaId, Connections.dataBase.GetSqlConnection())}, Characteristic {Characteristic}";
-        //    //return $"{Connections.getData.getPersonById(PersonId,Connections.dataBase.GetSqlConnection())} {Connections.getData.getPlaceWorkById(PlaceWorkId, Connections.dataBase.GetSqlConnection())}  {Connections.getData.getPostById(PostId, Connections.dataBase.GetSqlConnection())} {Connections.getData.getStavkaById(StavkaId, Connections.dataBase.GetSqlConnection())}, Characteristic {Characteristic}";
+        //    return $"{Connections._getData.getPersonById(PersonId, Connections._dataBase.GetSqlConnection())} {Connections._getData.getPlaceWorkById(PlaceWorkId, Connections._dataBase.GetSqlConnection())}  {Connections._getData.getPostById(PostId, Connections._dataBase.GetSqlConnection())} {Connections._getData.getStavkaById(StavkaId, Connections._dataBase.GetSqlConnection())}, Characteristic {Characteristic}";
+        //    //return $"{Connections._getData.getPersonById(PersonId,Connections._dataBase.GetSqlConnection())} {Connections._getData.getPlaceWorkById(PlaceWorkId, Connections._dataBase.GetSqlConnection())}  {Connections._getData.getPostById(PostId, Connections._dataBase.GetSqlConnection())} {Connections._getData.getStavkaById(StavkaId, Connections._dataBase.GetSqlConnection())}, Characteristic {Characteristic}";
         //}
         public Lecturer(int id, int personId, int placeWorkId,
             int stavkaId, int postId, string characteristic)

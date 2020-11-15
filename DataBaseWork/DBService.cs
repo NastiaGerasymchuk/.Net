@@ -6,23 +6,19 @@ using System.Text;
 
 namespace lab1Lect
 {
-    class DB
+    class DBService
     {
         
         private  SqlConnection _sqlConnection = null;
         
         public SqlConnection GetSqlConnection() { return _sqlConnection; }
-        public void ShowConnectionStatus(SqlConnection connection)
+        
+        public SqlConnection ShowConnectionStatus()
         {
-            Console.WriteLine("***INFO ABOUT YOUR CONNECTION***");
-            Console.WriteLine($"Database location: {connection.DataSource}");
-            Console.WriteLine($"Database name: {connection.Database}");
-            Console.WriteLine($"Timeout : {connection.ConnectionTimeout}");
-            Console.WriteLine($"Connection state: {connection.State}\n");
-
+            return _sqlConnection;
         }
 
-        public void OpenConnection()
+        public bool OpenConnection()
         {
             SqlConnectionStringBuilder cnStringBuilder = new SqlConnectionStringBuilder
             {
@@ -35,18 +31,20 @@ namespace lab1Lect
             _sqlConnection.Open();
             if (_sqlConnection?.State == ConnectionState.Open)
             {
-                Console.WriteLine("Connection is successful");
+               return true;
+             
             }
-            ///else
-            ShowConnectionStatus(_sqlConnection);
+            return false;
+           
         }
-        public void CloseConnection()
+        public bool CloseConnection()
         {
             if (_sqlConnection?.State != ConnectionState.Closed)
             {
                 _sqlConnection?.Close();
-                Console.WriteLine("Connection is closed");
+                return true;
             }
+            return false;
         }
 
     }
