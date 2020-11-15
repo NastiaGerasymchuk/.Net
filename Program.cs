@@ -18,7 +18,7 @@ namespace lab1Lect
             DBService dBService= new DBService();
             if (dBService.OpenConnection())
             {
-                Console.WriteLine($"Connection is opened!!!");
+                Console.WriteLine($"Connection is opened");
                 Model getData = new Model();
 
                 LecturerService lecturersInfo = new LecturerService(dBService, getData);
