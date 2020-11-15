@@ -18,7 +18,7 @@ namespace LabLastGer8.Controllers
             _context = context;
         }
 
-        // GET: Stavkas
+        
         public async Task<IActionResult> Index(string sortOrder)
         {
 
@@ -39,7 +39,7 @@ namespace LabLastGer8.Controllers
             return View(await countS.ToListAsync());
         }
 
-        // GET: Stavkas/Details/5
+        
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -57,15 +57,13 @@ namespace LabLastGer8.Controllers
             return View(stavka);
         }
 
-        // GET: Stavkas/Create
+       
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Stavkas/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+      
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Count")] Stavka stavka)
@@ -79,7 +77,7 @@ namespace LabLastGer8.Controllers
             return View(stavka);
         }
 
-        // GET: Stavkas/Edit/5
+       
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -95,9 +93,6 @@ namespace LabLastGer8.Controllers
             return View(stavka);
         }
 
-        // POST: Stavkas/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Count")] Stavka stavka)
@@ -130,7 +125,7 @@ namespace LabLastGer8.Controllers
             return View(stavka);
         }
 
-        // GET: Stavkas/Delete/5
+       
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -148,7 +143,7 @@ namespace LabLastGer8.Controllers
             return View(stavka);
         }
 
-        // POST: Stavkas/Delete/5
+        
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

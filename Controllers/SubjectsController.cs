@@ -18,7 +18,7 @@ namespace LabLastGer8.Controllers
             _context = context;
         }
 
-        // GET: Subjects
+   
         public async Task<IActionResult> Index(string sortOrder)
         {
 
